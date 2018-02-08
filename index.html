@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900|Quicksand:300,400,500,700|Raleway:100,200,300,400,500,700,900|Roboto:100,200,300,400,500" rel="stylesheet"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+  <title>gcd-for-discrete</title>
+</head>
+<body>
+  <br>
+  <form onsubmit="return sub();">
+  <h>Insert your two numbers to find the greatest common divisor: gcd(First Number, Second Number)</h><br>
+  <input id="num1" type="number" placeholder="First Number"/>
+  <input id="num2" type="number" placeholder="Second Number"/>
+  <input type="button" value="submit" onclick="divide()"/>
+  <p id="new"></p>
+  </form>
+  <script>
+  //239,123
+  //123 = 239*2 + 123
+  // c = d*e + f
+  //239
+  //divide( document.getElementById('num1'), document.getElementById('num2'));
+  function divide(){
+       var a = document.getElementById('num1').value;
+       var b = document.getElementById('num2').value;
+       var a1 = a;
+       var b1 = b;
+       var extA, extB, e1, eLast;
+       var e;
+       var gcd, i= 0;
+       var r = 1;
+
+       while (r > 0) {
+         eLast = e;
+         e = Math.floor(a / b);
+         for ( i; i <= 1; i++){
+           e1 = e;
+         }
+         gcd = r;
+         r = a - ( b * e );
+         extA = a;
+         extB = b;
+         document.write( a + " = " + b + " * " + e + " + " + r + "<br>");
+         a = b;
+         b = r;
+       }
+       document.write("gcd( " + a1 + ", " + b1 + " ) = " + gcd + "<br>");
+
+       console.log("e1 val:" + e1);
+       console.log("elast val:" + eLast);
+       var aEXT = eLast * -1;
+       var bEXT = (extB + extB*(e1 * eLast)) / extB;
+       document.write(gcd + " = " + a1 + "(" + aEXT + ")" + " + " + b1 + "(" + bEXT + ")" + "<br>");
+
+   // Extended Euclids
+
+   }
+/*
+  function divide(){
+       var a = document.getElementById('num1').value;
+       var b = document.getElementById('num2').value;
+       var a1 = a;
+       var b1 = b;
+
+       var e;
+       var gcd = 0;
+       var r = 1;
+
+       while (r > 0) {
+         e = Math.floor(b / a);
+         gcd = r;
+         temp_r = r;
+         r = b - ( a * e );
+
+         if ( r == 0) {
+           r = temp_r;
+
+           break;
+         }
+         console.log( b + " = " + a + " * " + e + " + " + r );
+         b = a;
+         a = r;
+       }
+       console.log("gcd( " + a1 + ", " + b1 + " ) = " + gcd);
+
+   // Extended Euclids
+
+   }
+  */
+// Euclids Algorithm
+//   function divide(){
+//     var a = document.getElementById('num1').value;
+//     var b = document.getElementById('num2').value;
+//     var a1 = a;
+//     var b1 = b;
+//
+//     var e;
+//     var c = 0;
+//     var r = 1;
+//
+//     while (r > 0) {
+//       e = Math.floor(b / a);
+//       c = r;
+//       //console.log("e val: " + e);
+//       r = b - ( a * e );
+//       console.log( b + " = " + a + " * " + e + " + " + r );
+//       b = a;
+//       a = r;
+//     }
+//     console.log("gcd( " + a1 + ", " + b1 + " ) = " + c);
+//
+// // Extended Euclids
+//
+//   }
+
+  </script>
+</body>
+</html>
