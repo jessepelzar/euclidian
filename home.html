@@ -21,6 +21,7 @@
   // c = d*e + f
   //239
   //divide( document.getElementById('num1'), document.getElementById('num2'));
+
   function divide(){
        var a = document.getElementById('num1').value;
        var b = document.getElementById('num2').value;
@@ -28,17 +29,18 @@
        var b1 = b;
        var extA, extB, e1, eLast;
        var e;
-       var gcd, i= 0;
+       var gcd, i = 0;
        var r = 1;
 
-       while (r > 0) {
+       while (b > 0 || r > 0) {
          eLast = e;
          e = Math.floor(a / b);
          for ( i; i <= 1; i++){
            e1 = e;
          }
          gcd = r;
-         r = a - ( b * e );
+         //r = a - ( b * e );
+         r = a % b;
          extA = a;
          extB = b;
          document.write( a + " = " + b + " * " + e + " + " + r + "<br>");
@@ -47,15 +49,48 @@
        }
        document.write("gcd( " + a1 + ", " + b1 + " ) = " + gcd + "<br>");
 
-       console.log("e1 val:" + e1);
-       console.log("elast val:" + eLast);
-       var aEXT = eLast * -1;
-       var bEXT = (extB + extB*(e1 * eLast)) / extB;
-       document.write(gcd + " = " + a1 + "(" + aEXT + ")" + " + " + b1 + "(" + bEXT + ")" + "<br>");
+// extended
+       a = a1;
+       b= b1;
 
-   // Extended Euclids
+       var x, x1, x2, y, y1, y2, r, e, d;
+       if (b == 0) {
+         d = a;
+         x = 1;
+         y = 0;
+       }
+       x1 = 0;
+       x2 = 1;
+       y1 = 1;
+       y2 = 0;
+       while ( b > 0) {
+         e = Math.floor(a / b);
+         r = a % b;
+         x = x2 - ( e * x1 );
+         y = y2 - ( e * y1 );
+         a = b;
+         b = r;
+         x2 = x1;
+         x1 = x;
+         y2 = y1;
+         y1 = y;
+         console.log("a val: " + a);
+         console.log("b val: " + b);
+         console.log("e val: " + e);
+         console.log("r val: " + r);
+         console.log("x1 val: " + x1);
+         console.log("y1 val: " + y1);
+         console.log("x2 val: " + x2);
+         console.log("y2 val: " + y2);
 
-   }
+       }
+       d = a;
+       x = x2;
+       y = y2;
+       document.write("the extended answer: " + gcd + " = " + a1 + " ( " + x + " ) " + " + " + b1 + " ( " + y + " ) " );
+     }
+
+
 /*
   function divide(){
        var a = document.getElementById('num1').value;
