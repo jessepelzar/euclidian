@@ -67,9 +67,14 @@
 
 // extended
       // assign the origional numbers back to a and b;
-       a = a1;
-       b = b1;
-
+      if ( num1 < num2) {
+        b = num1;
+        a = num2;
+      }
+      else {
+        a = num1;
+        b = num2;
+      }
        var x, x1, x2, y, y1, y2, r, e, d;
        // create the instance for when b is zero (smaller number is zero)
        // the result will cancel out from the zero and the remaining will be the a number times 1
