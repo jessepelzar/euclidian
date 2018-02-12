@@ -30,13 +30,34 @@
 
 
 
-// negative conditions -- just make any negatives into positives
-// if float ~~ break (error mssg)
+// negative conditions -- just make any negatives into positives √
+// if float ~~ break (error mssg) √
+// when a number is zero √
 
   function divide(){
 
        var num1 = document.getElementById('num1').value;
        var num2 = document.getElementById('num2').value;
+
+       // checks for floating point numbers
+        if (num1 != parseInt(num1) || num2 != parseInt(num2)) {
+          alert('Please enter an integer greater than zero');
+          return;
+        }
+
+        // check for zero numbers
+        if ( num1 == 0 || num2 == 0 ) {
+          alert('Input numbers greater than zero');
+          return;
+        }
+
+        // checks for negative nums
+        if (Math.sign(num1) == -1) {
+          num1 = 0 - num1;
+        }
+        if (Math.sign(num2) == -1) {
+          num2 = 0 - num2;
+        }
 
        // if the first number is smaller than the first, switch them
        if ( num1 < num2) {
@@ -49,18 +70,16 @@
        }
        var a1 = a;
        var b1 = b;
-       var extA, extB, e1, eLast;
+       var extA, extB;
        var e;
        var gcd, i = 0;
        var r = 1;
 
 
-       while (b > 0 || r > 0) {
-         eLast = e;
+       while ( b > 0 || r > 0 ) {
+
          e = Math.floor(a / b);         // the math.floor func divides a by b and store the most amount of time a is divisible by b ~~ no decimal   eg. e = 8/3 = 2.66667 = 2
-         for ( i; i <= 1; i++){         // loops once to
-           e1 = e;
-         }
+
          gcd = r;
          //r = a - ( b * e );
          r = a % b;                     // the mod command finds the remainder of a and b eg. r = 8/3 = 2
@@ -74,7 +93,7 @@
 
 // extended
       // assign the origional numbers back to a and b;
-      if ( num1 < num2) {
+      if ( num1 < num2 ) {
         b = num1;
         a = num2;
       }
@@ -86,7 +105,7 @@
        // create the instance for when b is zero (smaller number is zero)
        // the result will cancel out from the zero and the remaining will be the a number times 1
        // eg. 14 = 14(1) + 0(0) ~~ b is already zero so setting y to zero just keeps it zero and saves all of the bull S****
-       if (b == 0) {
+       if ( b == 0 ) {
          d = a;
          x = 1;
          y = 0;
@@ -98,8 +117,8 @@
        y2 = 0;
 
        // create a while loop to stop the Algorithm before the smaller number (b) is zero
-       while ( b > 0) {
-         e = Math.floor(a / b);
+       while ( b > 0 ) {
+         e = Math.floor( a / b );
          r = a % b;
 
          // x = 1 - (e * 0)
@@ -136,7 +155,7 @@
 
 function bigFib() {
   var btn = document.getElementById('subfin');
-  var k = document.getElementById('num3').value;
+  var k   = document.getElementById('num3').value;
   k -= 1;
 // function calls for fib funcs
   fib1(k);
