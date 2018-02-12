@@ -9,14 +9,16 @@
 <body>
   <br>
   <form onsubmit="return sub();">
-  <h>Insert your two numbers to find the greatest common divisor: gcd(First Number, Second Number)</h><br>
+  <h>Insert your two numbers to find the greatest common divisor: gcd(First Number, Second Number)</h><br><br>
   <input id="num1" type="number" placeholder="First Number"/>
   <input id="num2" type="number" placeholder="Second Number"/>
   <input type="button" value="submit" onclick="divide()"/>
-  <!--<div>
-    <input id="num3" type="number" placeholder="enter number for n"/>
-
-  </div> -->
+<div>
+  <br><br><h>Insert the max number of fibanacci numbers you would like to see.</h><br>
+    <p id="finnums"></p>
+    <input id="num3" type="number" placeholder="enter number for n" />
+    <input id="subfin" type="button" name="fin" onclick="bigFib()"/>
+  </div>
   <p id="new"></p>
   </form>
   <script>
@@ -121,21 +123,32 @@
        y = y2;
        document.write("the extended answer: " + gcd + " = " + a1 + " ( " + x + " ) " + " + " + b1 + " ( " + y + " ) " );
      }
-/*
-function fib() {
-  var fib = document.getElementById("num3").value;
-  var a1 = 1;
-  var a2 = 2;
-  var x = 0;
-  while (fib > 0) {
-    a1 += x;
-    x++;
-    fib--;
 
-  }
-  console.log(a1);
+function bigFib() {
+  var btn = document.getElementById('subfin');
+  var k = document.getElementById('num3').value;
+  k -= 1;
+// function calls for fib funcs
+  fib1(k);
 }
-*/
+
+function fib1(n) {
+  var a = 0;
+  var b = 1;
+  var c;
+  if (n == 0){
+    return n;
+  }
+  var j = 1;
+  for (var i = 0; i <= n; i++) {
+  document.getElementById('finnums').innerHTML += (j + " : " + b + "<br>");
+    c = a + b;
+    a = b;
+    b = c;
+
+  j++;
+  }
+}
 /*
   function divide(){
        var a = document.getElementById('num1').value;
