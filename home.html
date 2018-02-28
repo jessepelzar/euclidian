@@ -160,6 +160,7 @@
      }
 
 function bigFib() {
+  document.getElementById('finnums').innerHTML = "";
   var btn = document.getElementById('subfin');
   var k   = document.getElementById('num3').value;
   k -= 1;
@@ -198,31 +199,43 @@ function fib1(n) {
 
 //insert an <br> for every loop completion of c
 function bigPas() {
+  document.getElementById('pasnums').innerHTML = "";
   var n = document.getElementById('num4').value;
-  pascal(n);
+  pascal(n, '');
 }
 var k;
 function pascal(n) {
-  var branches = "\u00A0" + "/" + "\u00A0" + "\u00A0" + "\\" + "\u00A0";
+  var branches = "\u00A0" + "\u00A0" + "/" + "\u00A0" + "\u00A0" + "\u00A0" + "\\" + "\u00A0" + "\u00A0";
 
-  for (var i = 0; i <= n; i++) {
+  var arr = [];
+  var p
 
-    document.getElementById('pasnums').innerHTML += "<br>";
-
-    for (var k = 0; k <= i; k++) {
-        document.getElementById('pasnums').innerHTML += "\u00A0 " + k + " \u00A0";
-    }
-    document.getElementById('pasnums').innerHTML += "<br>";
-
-    for (var j = 0; j <= i; j++){
-      document.getElementById('pasnums').innerHTML += branches;
-    }
-
-
-
-
+  arr[0] = 1;
+  for (p = 1; p <= 100; p++) {
+    arr[p] = p + (p - 1);
+    //arr.push( += numStart-1);
+    // for (var i = 0; i <= 100; i++) {
+    //   console.log(arr[i]);
+    //   return arr[i];
+    //}
   }
+
+
+    for (var i = 0; i <= n; i++) {
+      document.getElementById('pasnums').innerHTML += "<br><br>";
+
+      for (var k = 0; k <= i; k++) {
+          document.getElementById('pasnums').innerHTML += "\u00A0 " + "\u00A0 " + arr[k] + " \u00A0" + "\u00A0 ";
+      }
+      document.getElementById('pasnums').innerHTML += "<br><br>";
+
+      for (var j = 0; j <= i; j++){
+        document.getElementById('pasnums').innerHTML += branches;
+      }
+    }
+
 }
+
 
 
   </script>
